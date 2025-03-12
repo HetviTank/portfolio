@@ -267,6 +267,35 @@ nav {
     margin-bottom: 1rem;
     opacity: 0.9;
 }
+@media (max-width: 768px) {
+    .hero {
+        height: auto; /* Adjust height dynamically */
+        padding: 40px 20px; /* Increased side padding */
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%; /* Full width buttons for better touch */
+        max-width: 300px;
+    }
+}
 
 /* Sections */
 section {
@@ -769,7 +798,8 @@ section.visible {
         -webkit-overflow-scrolling: touch;
         width: 100%;
         padding: 10px 0;
-        justify-content: center;
+        justify-content: flex-start; /* Align items to the start */
+        scroll-padding-left: 10px; /* Ensures the first card is visible */
     }
 
     .project-wrapper {
@@ -779,6 +809,7 @@ section.visible {
     .project-card {
         width: 90vw;
         margin-right: 10px;
+        scroll-snap-align: center; /* Ensures smooth snapping */
     }
 
     /* Hide Navigation Buttons on Mobile */
