@@ -297,7 +297,9 @@ nav {
     }
 
     .hero-buttons {
-        flex-direction: column; /* Stack buttons vertically */
+        display: flex;
+        flex-direction: row; /* Arrange buttons in a row */
+        justify-content: center; /* Center buttons */
         gap: 10px;
         width: 100%;
     }
