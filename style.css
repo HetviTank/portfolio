@@ -267,11 +267,21 @@ nav {
     margin-bottom: 1rem;
     opacity: 0.9;
 }
+/* 🔹 Mobile View Fix */
 @media (max-width: 768px) {
     .hero {
         height: auto; /* Adjust height dynamically */
         padding: 40px 20px; /* Increased side padding */
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* Ensure everything stays centered */
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 90%; /* Prevents stretching */
     }
 
     .hero h1 {
@@ -289,6 +299,7 @@ nav {
     .hero-buttons {
         flex-direction: column; /* Stack buttons vertically */
         gap: 10px;
+        width: 100%;
     }
 
     .btn {
@@ -296,6 +307,7 @@ nav {
         max-width: 300px;
     }
 }
+
 
 /* Sections */
 section {
@@ -799,7 +811,7 @@ section.visible {
         width: 100%;
         padding: 10px 0;
         justify-content: flex-start; /* Align items to the start */
-        scroll-padding-left: 10px; /* Ensures the first card is visible */
+        scroll-padding-left: 10px; /* Ensures first card is fully visible */
     }
 
     .project-wrapper {
@@ -807,9 +819,26 @@ section.visible {
     }
 
     .project-card {
-        width: 90vw;
-        margin-right: 10px;
-        scroll-snap-align: center; /* Ensures smooth snapping */
+        width: 95vw; /* Take almost full width of the screen */
+        max-width: 380px; /* Prevents excessive stretching */
+        padding: 20px; /* Adjust padding to fit content */
+        margin-right: 15px; /* Ensures proper spacing */
+        scroll-snap-align: center; /* Smooth snapping */
+        box-sizing: border-box;
+    }
+
+    .project-card h3 {
+        font-size: 1.4rem; /* Slightly reduce font size for smaller screens */
+    }
+
+    .project-card p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .tech-tags span {
+        font-size: 0.8rem; /* Adjust tag size */
+        padding: 0.3rem 0.7rem;
     }
 
     /* Hide Navigation Buttons on Mobile */
