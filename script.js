@@ -33,13 +33,6 @@ if (mobileNavToggle) {
         navLinks.classList.toggle('active');
     });
 }
-document.querySelector('.slide-left').addEventListener('click', () => {
-    document.querySelector('.projects-grid').scrollBy({ left: -150, behavior: 'smooth' });
-});
-
-document.querySelector('.slide-right').addEventListener('click', () => {
-    document.querySelector('.projects-grid').scrollBy({ left: 150, behavior: 'smooth' });
-});
 
 // Close mobile menu when clicking a link
 document.querySelectorAll('.nav-links a').forEach(link => {
@@ -47,5 +40,33 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         if (navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
         }
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const projectsGrid = document.querySelector(".projects-grid");
+    let isUserInteracting = false;
+
+    // Auto-scroll function
+    function autoScroll() {
+        if (!isUserInteracting) {
+            projectsGrid.scrollBy({ left: 200, behavior: "smooth" });
+        }
+    }
+
+    // Stop auto-scroll on user interaction
+    projectsGrid.addEventListener("touchstart", () => (isUserInteracting = true));
+    projectsGrid.addEventListener("wheel", () => (isUserInteracting = true));
+
+    // Auto-scroll every 3s for 8 seconds
+    let autoScrollInterval = setInterval(autoScroll, 3000);
+    setTimeout(() => clearInterval(autoScrollInterval), 8000);
+
+    // Manual scroll buttons
+    document.querySelector(".slide-left").addEventListener("click", () => {
+        projectsGrid.scrollBy({ left: -200, behavior: "smooth" });
+    });
+
+    document.querySelector(".slide-right").addEventListener("click", () => {
+        projectsGrid.scrollBy({ left: 200, behavior: "smooth" });
     });
 });

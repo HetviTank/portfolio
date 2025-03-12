@@ -505,43 +505,52 @@ h2 {
     margin: 0 auto;
     position: relative;
     padding: 0 2rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
+/* Scrollable Grid */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    scroll-behavior: smooth;
+    display: flex;
     gap: 1rem;
     padding: 1rem;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE & Edge */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    scrollbar-width: none; /* Hide scrollbar (Firefox) */
+    -ms-overflow-style: none; /* Hide scrollbar (IE & Edge) */
 }
 
+/* Hide scrollbar for Chrome/Safari */
 .projects-grid::-webkit-scrollbar {
     display: none;
 }
 
+/* Project Card */
 .project-card {
-    min-width: 120px;
+    min-width: 280px; /* Fixed width for horizontal scrolling */
     flex: 0 0 auto;
     text-align: center;
     background: var(--bg-color);
-    padding: 0.8rem;
+    padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
+/* Icons */
 .project-card i {
     font-size: 1.5rem;
 }
 
+/* Project Title */
 .project-card h3 {
     font-size: 1rem;
     margin: 0.5rem 0;
 }
 
+/* Tech Tags */
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -557,30 +566,70 @@ h2 {
     font-size: 0.7rem;
 }
 
+/* Hover Effect */
 .project-card:hover {
     transform: translateY(-5px);
 }
+/* Add Scroll Hint Animation */
+.projects-grid::before {
+    content: "← Swipe →";
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    animation: fadeOut 5s ease-out forwards;
+}
+
+/* Fades out after 5s */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 
 /* Slide Arrows */
-button {
-    background: #ebf0f5;
-    color: #fdfdfd;
+.slide-left, .slide-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    color: var(--primary-color);
     border: none;
-    padding: 3px ;
+    padding: 0.5rem;
     font-size: 1.5rem;
     cursor: pointer;
-    border-radius: 40%;
-    transition: all 0.3s;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-    background: var(--hover-color);
+.slide-left {
+    left: 0;
 }
 
-/* Hide buttons on small screens */
-@media (max-width: 600px) {
+.slide-right {
+    right: 0;
+}
+
+.slide-left:hover, .slide-right:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Hide Buttons on Mobile (Enable Swipe) */
+@media (max-width: 768px) {
     .slide-left, .slide-right {
         display: none;
+    }
+
+    .projects-grid {
+        scroll-snap-type: x mandatory;
+    }
+
+    .project-card {
+        scroll-snap-align: center;
     }
 }
 
