@@ -128,12 +128,12 @@ nav {
     height: 200%;
     top: -50%;
     left: -50%;
-    background-image:
+    /* background-image:
         radial-gradient(2px 2px at 40px 60px, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0)),
         radial-gradient(2px 2px at 20px 50px, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0)),
         radial-gradient(2px 2px at 30px 100px, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0)),
         radial-gradient(2px 2px at 70px 80px, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0)),
-        radial-gradient(2px 2px at 110px 120px, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
+        radial-gradient(2px 2px at 110px 120px, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0)); */
     background-repeat: repeat;
     animation: sparkle 20s linear infinite;
     transform: rotate(30deg);
@@ -282,14 +282,14 @@ nav {
     .hero-content {
         width: 100%;
         max-width: 90%; /* Prevents stretching */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Ensures text stays centered */
     }
 
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero h2 {
-        font-size: 1.5rem;
+    .hero h1, .hero h2 {
+        text-align: center;
+        width: 100%; /* Ensures full width for centering */
     }
 
     .hero p {
@@ -306,7 +306,29 @@ nav {
         width: 100%; /* Full width buttons for better touch */
         max-width: 300px;
     }
+
+    /* 🔹 Show only one card in mobile & add background image */
+    .card-container {
+        display: flex;
+        justify-content: center; /* Center the card */
+    }
+
+    .card {
+        display: none; /* Hide all cards by default */
+    }
+
+    .card:first-child {
+        display: block; /* Show only the first card */
+        width: 100%;
+        max-width: 90%;
+        background-image: url('your-mobile-image.jpg'); /* Add background image */
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 10px;
+    }
 }
+
 
 
 /* Sections */
