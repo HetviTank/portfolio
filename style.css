@@ -396,7 +396,7 @@ section {
 
 h2 {
     text-align: center;
-    color: #0a4a8f;
+    color: var(--primary-color);
     font-size: 2.5rem;
     margin-bottom: 3rem;
 }
@@ -569,9 +569,6 @@ h2 {
         position: relative;
         z-index: 2;
     }
-    
-    
-    
 
     .project-card::before {
         content: "";

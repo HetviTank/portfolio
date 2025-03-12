@@ -70,37 +70,5 @@ document.addEventListener("DOMContentLoaded", function () {
         projectsGrid.scrollBy({ left: 200, behavior: "smooth" });
     });
 });
-document.addEventListener("DOMContentLoaded", function() {
-    const cards = document.querySelectorAll(".project-card");
-    let currentIndex = 0;
 
-    function updateCards() {
-        cards.forEach((card, index) => {
-            card.classList.remove("active", "prev", "next");
-            if (index === currentIndex) {
-                card.classList.add("active");
-            } else if (index === currentIndex - 1) {
-                card.classList.add("prev");
-            } else if (index === currentIndex + 1) {
-                card.classList.add("next");
-            }
-        });
-    }
-
-    document.querySelector(".slide-left").addEventListener("click", () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCards();
-        }
-    });
-
-    document.querySelector(".slide-right").addEventListener("click", () => {
-        if (currentIndex < cards.length - 1) {
-            currentIndex++;
-            updateCards();
-        }
-    });
-
-    updateCards(); // Initialize the first card view
-});
 
