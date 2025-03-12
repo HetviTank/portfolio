@@ -113,6 +113,10 @@
 
 /* Global styles */
 :root {
+    --primary-color: #007bff;
+    --secondary-color: #00bfff;
+    --text-color: #333;
+    --bg-color: #fff;
 /* Scroll to top button styles */
 .scroll-to-top {
     position: fixed;
@@ -490,14 +494,16 @@ h2 {
 
 /* Projects Section */
 .projects-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2rem;
 }
 
 .projects-grid {
-    display: flex;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
     scroll-behavior: smooth;
     gap: 1rem;
     padding: 1rem;
@@ -615,7 +621,7 @@ button:hover {
 .contact-grid {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 3rem;
     margin-top: 2rem;
 }
 
