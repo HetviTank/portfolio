@@ -662,7 +662,7 @@ section.visible {
 .projects-grid {
     display: flex;
     overflow: hidden;
-    width: 900px; /* Adjusted for increased gap */
+    width: 900px; /* Desktop width remains the same */
     padding: 10px;
     scroll-behavior: smooth;
     position: relative;
@@ -670,7 +670,7 @@ section.visible {
 
 .project-wrapper {
     display: flex;
-    gap: 30px; /* Increased spacing between project cards */
+    gap: 30px; /* Desktop gap remains the same */
     transition: transform 0.5s ease-in-out;
 }
 
@@ -682,15 +682,15 @@ section.visible {
     background: #f5f3f3;
     color: rgb(8, 10, 10);
     padding: 15px;
-    /* gap: 20px; */
     border-radius: 10px;
     width: 250px;
     scroll-snap-align: center;
     box-shadow: 0 4px 8px rgba(127, 140, 180, 0.2);
     text-align: center;
     flex-shrink: 0;
-    margin-right: 30px; /* Adds space between cards */
+    margin-right: 30px;
 }
+
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -705,6 +705,7 @@ section.visible {
     border-radius: 12px;
     font-size: 0.7rem;
 }
+
 .project-card i {
     font-size: 2.75rem;
     background: linear-gradient(135deg, #2563eb, #1d4ed8);
@@ -732,7 +733,7 @@ section.visible {
     flex-grow: 1;
 }
 
-/* Left & Right Navigation Buttons */
+/* Left & Right Navigation Buttons (Visible only on desktop) */
 .slide-left, .slide-right {
     position: absolute;
     top: 50%;
@@ -759,7 +760,32 @@ section.visible {
     background: rgb(76, 125, 218);
 }
 
+/* Mobile View: Show only one full card, remove arrows, and enable swipe */
+@media (max-width: 768px) {
+    .projects-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        padding: 10px 0;
+        justify-content: center;
+    }
 
+    .project-wrapper {
+        gap: 10px;
+    }
+
+    .project-card {
+        width: 90vw;
+        margin-right: 10px;
+    }
+
+    /* Hide Navigation Buttons on Mobile */
+    .slide-left, .slide-right {
+        display: none;
+    }
+}
 
 
 
