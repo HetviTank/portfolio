@@ -103,23 +103,23 @@ nav {
 
 /* Hero Section */
 /* Sparkle Animation */
-@keyframes sparkle {
+/* @keyframes sparkle {
     0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
     100% { background-position: 500px 500px, 200px 400px, -300px 300px, -200px -200px, 100px -300px; }
-}
+} */
 
 .hero {
     position: relative;
     height: 100vh;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: url('doc/images/background-realistic-abstract-technology-particle_23-2148431735.avif') no-repeat center center/cover;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; 
+    justify-content: center; 
     text-align: center;
     color: white;
-    padding-top: 80px;
     overflow: hidden;
 }
+
 
 .hero::before {
     content: '';
@@ -152,7 +152,7 @@ nav {
     transform-style: preserve-3d;
     perspective: 1000px;
 }
-.hero {
+/* .hero {
     position: relative;
     height: 100vh;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -163,9 +163,9 @@ nav {
     color: white;
     padding-top: 80px;
     overflow: hidden;
-}
+} */
 
-.hero::after {
+/* .hero::after {
     content: '';
     position: absolute;
     top: 0;
@@ -180,8 +180,8 @@ nav {
         radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.2), rgba(0,0,0,0));
     background-repeat: repeat;
     animation: sparkle 10s linear infinite;
-}
-.hero {
+} */
+/* .hero {
     height: 100vh;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     display: flex;
@@ -190,7 +190,7 @@ nav {
     text-align: center;
     color: white;
     padding-top: 80px;
-}
+} */
 
 .hero-content {
     animation: fadeIn 1s ease-out;
